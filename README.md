@@ -38,9 +38,9 @@ Introductory workshop to start learning Elm
 
     ```
     type alias Model =
-    { name : String
-    , counter : Int
-    }
+        { name : String
+        , counter : Int
+        }
     ```
  - Create a value called initialModel with some data
 
@@ -51,10 +51,10 @@ Introductory workshop to start learning Elm
 
     ```
     view model =
-    div [][
-        h1 [][text model.name]
-        , div [][text (toString model.counter)]
-    ]
+        div [][
+            h1 [][text model.name]
+            , div [][text (toString model.counter)]
+        ]
     ```
 
  - Pass initialModel as a parameter to the view function in main
@@ -77,19 +77,19 @@ Introductory workshop to start learning Elm
     ```
     ```
     view model =
-    div [][
-        h1 [][text model.name]
-        , div [][text (toString model.counter)]
-        , button [][text "UP"]
-        , button [][text "DOWN"]
-    ]
+        div [][
+            h1 [][text model.name]
+            , div [][text (toString model.counter)]
+            , button [][text "UP"]
+            , button [][text "DOWN"]
+        ]
     ```
  - Create a union type with two cases, Up and down
 
     ```
     type Action 
-    = Up
-    | Down
+        = Up
+        | Down
     ```
  - Import Html.Events
 
@@ -108,9 +108,9 @@ Introductory workshop to start learning Elm
 
     ```
     update msg model =
-    case msg of
-        Up -> {model | counter = model.counter + 1}
-        Down -> {model | counter = model.counter - 1}
+        case msg of
+            Up -> {model | counter = model.counter + 1}
+            Down -> {model | counter = model.counter - 1}
     ```
 
  - Import Html.App
@@ -154,21 +154,21 @@ Introductory workshop to start learning Elm
  - Change main to use *program*
     ```
     main =
-    Html.App.program
-    {
-        init = (initialModel, Cmd.none)
-        , view = view
-        , update = update
-        , subscriptions = (\model -> Sub.none)
-    }
+        Html.App.program
+        {
+            init = (initialModel, Cmd.none)
+            , view = view
+            , update = update
+            , subscriptions = (\model -> Sub.none)
+        }
     ```
 
  - Update the update function to return Cmd.none en each case
     ```
     update msg model =
-    case msg of
-        Up -> ({model | counter = model.counter + 1}, Cmd.none)
-        Down -> ({model | counter = model.counter - 1}, Cmd.none)
+        case msg of
+            Up -> ({model | counter = model.counter + 1}, Cmd.none)
+            Down -> ({model | counter = model.counter - 1}, Cmd.none)
     ```
 
  - Create a new case (GetRandom) in the Action union
@@ -264,13 +264,13 @@ Introductory workshop to start learning Elm
  - Update Html.program to use the subscriptions function
     ```
     main =
-    Html.App.program
-    {
-        init = (initialModel, Cmd.none)
-        , view = view
-        , update = update
-        , subscriptions = subscriptions
-    }
+        Html.App.program
+        {
+            init = (initialModel, Cmd.none)
+            , view = view
+            , update = update
+            , subscriptions = subscriptions
+        }
     ```
 
  - Create main.js
