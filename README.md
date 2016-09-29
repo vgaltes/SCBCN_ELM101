@@ -1,6 +1,18 @@
 # SCBCN_ELM101
 Introductory workshop to start learning Elm
 
+## Description
+In this workshop we´re going to create a very simple application but that shows the main characteristics of Elm and the Elm Architecture.
+
+The steps we´re going to follow are the following ones:
+ - Defining a basic view: Create a view that displays a message
+ - Using a model: Create a view that displays the contents of a model (name (String) and counter (Int))
+ - Updating counter: Add two buttons (Up and Down) to change the value of the counter. (Hint: you will need to use Html.App.beginnerProgram)
+ - Generate a random number: Add a button to display a random number (Hint: you will need to use Html.App.programm)
+ - Interacting with the keyboard: Display the key code number when a key is pressed (Hint: you will need to use subscriptions)
+
+If you want to try to solve the exercises without any help, please don´t read the next sections.
+
 ## Defining a basic view
  - Create a file named main.elm in the src folder
  - Define a module called Test
@@ -192,7 +204,7 @@ Introductory workshop to start learning Elm
     ```
     , button [onClick GetRandom][text "RANDOM"]
     ```
-    
+
  - Create a new case (Update of Int) in the Action union
     ```
     type Action 
