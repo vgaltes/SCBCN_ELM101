@@ -113,8 +113,30 @@ Introductory workshop to start learning Elm
         Down -> {model | counter = model.counter - 1}
     ```
 
+ - Import Html.App
+
+    ```
+    import Html.App exposing (..)
+    ```
+
+ - Use Html.beginnerProgram
+
+    ```
+    main =
+        Html.App.beginnerProgram
+        {
+            model = initialModel
+            , view = view
+            , update = update
+        }
+    ```
+
  - Create main.js
 
     ```
     elm make --output main.js
-    ```
+    ```     
+
+## Generate a random number
+
+
