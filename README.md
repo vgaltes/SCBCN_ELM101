@@ -11,7 +11,7 @@ Introductory workshop to start learning Elm
  - Import the Html module (only with div, txt and h1)
     
     ```
-    import Html exposing (div, text, h1, button)
+    import Html exposing (div, text, h1)
     ```
  - Create a simple view function that renders a text in a h1 inside a div.
     
@@ -30,7 +30,7 @@ Introductory workshop to start learning Elm
  - Create main.js
 
     ```
-    elm make --output main.js
+    elm make main.elm --output main.js
     ```
 
 ## Using a model
@@ -66,7 +66,7 @@ Introductory workshop to start learning Elm
  - Create main.js
 
     ```
-    elm make --output main.js
+    elm make main.elm --output main.js
     ```
 
 ## Updating counter
@@ -134,7 +134,7 @@ Introductory workshop to start learning Elm
  - Create main.js
 
     ```
-    elm make --output main.js
+    elm make main.elm --output main.js
     ```     
 
 ## Generate a random number
@@ -220,7 +220,7 @@ Introductory workshop to start learning Elm
  - Create main.js
 
     ```
-    elm make --output main.js
+    elm make main.elm --output main.js
     ```   
 
 ## Interacting with the keyboard
@@ -276,5 +276,5 @@ Introductory workshop to start learning Elm
  - Create main.js
 
     ```
-    elm make --output main.js
+    elm make main.elm --output main.js
     ```  
