@@ -27,3 +27,34 @@ Introductory workshop to start learning Elm
     main =
         view "Hello Barcelona!"
     ```
+
+## Using a model
+ - Create a type alias called Model with a name (String) and a counter (Int)
+
+    ```
+    type alias Model =
+    { name : String
+    , counter : Int
+    }
+    ```
+ - Create a value called initialModel with some data
+
+    ```
+    initialModel = {name = "ELM 101", counter = 3}
+    ```
+ - Use the model to render the view
+
+    ```
+    view model =
+    div [][
+        h1 [][text model.name]
+        , div [][text (toString model.counter)]
+    ]
+    ```
+
+ - Pass initialModel as a parameter to the view function in main
+
+    ```
+    main =
+        view initialModel
+    ```
