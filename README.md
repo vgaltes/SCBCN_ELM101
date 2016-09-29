@@ -222,3 +222,59 @@ Introductory workshop to start learning Elm
     ```
     elm make --output main.js
     ```   
+
+## Interacting with the keyboard
+ - Install Keyboard package
+    ```
+    elm package install elm-lang Keyboard
+    ```
+
+ - Import Keyboard
+    ```
+    import Keyboard
+    ```
+
+ - Create new case (KeyMsg of KeyMsg Keyboard.KeyCode) in Action union
+    ```
+    type Action 
+        = Up
+        | Down
+        | GetRandom
+        | Update Int
+        | KeyMsg Keyboard.KeyCode
+    ```
+
+ - Create subscriptions function
+    ```
+    subscriptions model =
+        Sub.batch[Keyboard.presses KeyMsg]
+    ```
+
+ - Add new branch in the update pattern match
+    ```
+    update msg model =
+        case msg of
+            Up -> ({model | counter = model.counter + 1}, Cmd.none)
+            Down -> ({model | counter = model.counter - 1}, Cmd.none)
+            GetRandom -> (model, Random.generate Update randomNumber)
+            Update x -> ({model | counter = x}, Cmd.none)
+            KeyMsg x -> ({model | counter = x}, Cmd.none)
+    ```
+
+ - Update Html.program to use the subscriptions function
+    ```
+    main =
+    Html.App.program
+    {
+        init = (initialModel, Cmd.none)
+        , view = view
+        , update = update
+        , subscriptions = subscriptions
+    }
+    ```
+
+ - Create main.js
+
+    ```
+    elm make --output main.js
+    ```  
