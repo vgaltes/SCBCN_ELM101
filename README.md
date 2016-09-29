@@ -188,6 +188,10 @@ Introductory workshop to start learning Elm
             GetRandom -> (model, Cmd.none)
     ```
 
+ - Add a new button to get the random number
+    ```
+    , button [onClick GetRandom][text "RANDOM"]
+    ```
  - Create a new case (Update of Int) in the Action union
     ```
     type Action 
