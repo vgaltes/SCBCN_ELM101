@@ -27,6 +27,11 @@ Introductory workshop to start learning Elm
     main =
         view "Hello Barcelona!"
     ```
+ - Create main.js
+
+    ```
+    elm make --output main.js
+    ```
 
 ## Using a model
  - Create a type alias called Model with a name (String) and a counter (Int)
@@ -57,4 +62,59 @@ Introductory workshop to start learning Elm
     ```
     main =
         view initialModel
+    ```
+ - Create main.js
+
+    ```
+    elm make --output main.js
+    ```
+
+## Updating counter
+ - Create two buttons (Up and down)
+
+    ```
+    import Html exposing (div, text, h1, button)
+    ```
+    ```
+    view model =
+    div [][
+        h1 [][text model.name]
+        , div [][text (toString model.counter)]
+        , button [][text "UP"]
+        , button [][text "DOWN"]
+    ]
+    ```
+ - Create a union type with two cases, Up and down
+
+    ```
+    type Action 
+    = Up
+    | Down
+    ```
+ - Import Html.Events
+
+    ```
+    import Html.Events exposing (..)
+    ```
+
+ - Add the onClick event to both buttons
+
+    ```
+    , button [onClick Up][text "UP"]
+    , button [onClick Down][text "DOWN"]    
+    ```
+
+ - Create an update function that gets a msg and a model and updates the model accordingly using pattern matching
+
+    ```
+    update msg model =
+    case msg of
+        Up -> {model | counter = model.counter + 1}
+        Down -> {model | counter = model.counter - 1}
+    ```
+
+ - Create main.js
+
+    ```
+    elm make --output main.js
     ```
